@@ -15,11 +15,7 @@ function App() {
 
   return (
     <>
-      {isInit ? (
-        <AppRouter isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-      ) : (
-        "Initializing..."
-      )}
+      {isInit ? <AppRouter isLoggedIn={isLoggedIn} /> : "Initializing..."}
       <footer>&copy; Nwitter {new Date().getFullYear()}</footer>
     </>
   );
