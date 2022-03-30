@@ -12,3 +12,10 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 
 export const authService = getAuth();
+export {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+  GithubAuthProvider,
+} from "firebase/auth";
