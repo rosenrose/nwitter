@@ -10,7 +10,7 @@ const Home = () => {
     event.preventDefault();
 
     await addDoc(collection(dbService, "nweets"), {
-      nweet,
+      text: nweet,
       createdAt: Date.now(),
     });
     setNweet("");
@@ -46,7 +46,7 @@ const Home = () => {
       <ul>
         {nweetList.map((nweet) => (
           <li key={nweet.id}>
-            <h4>{nweet.nweet}</h4>
+            <h4>{nweet.text}</h4>
           </li>
         ))}
       </ul>
