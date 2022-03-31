@@ -51,6 +51,8 @@ const Home = ({ user }) => {
 
   const onFileChange = (event) => {
     const file = event.target.files[0];
+    // console.log(file);
+
     if (file) {
       // const reader = new FileReader();
       // reader.addEventListener("load", (event) => {
