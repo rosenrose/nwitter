@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { dbService, collection, addDoc, getDocs, onSnapshot } from "fbase";
 import Nweet from "components/Nweet";
 
-const Home = ({ userObj }) => {
-  // console.log(userObj);
+const Home = ({ user }) => {
+  // console.log(user);
   const [nweet, setNweet] = useState("");
   const [nweetList, setNweetList] = useState([]);
 
@@ -13,7 +13,7 @@ const Home = ({ userObj }) => {
     await addDoc(collection(dbService, "nweets"), {
       text: nweet,
       createdAt: Date.now(),
-      creatorId: userObj.uid,
+      creatorId: user.uid,
     });
     setNweet("");
   };
@@ -47,7 +47,7 @@ const Home = ({ userObj }) => {
       </form>
       <ul>
         {nweetList.map((nweet) => (
-          <Nweet key={nweet.docId} nweet={nweet} isOwner={userObj.uid === nweet.creatorId} />
+          <Nweet key={nweet.docId} nweet={nweet} isOwner={user.uid === nweet.creatorId} />
         ))}
       </ul>
     </div>

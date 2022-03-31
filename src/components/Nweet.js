@@ -27,7 +27,7 @@ const Nweet = ({ nweet, isOwner }) => {
 
   return (
     <li>
-      {isEditing ? (
+      {isEditing && isOwner ? (
         <>
           <form onSubmit={updateNweet}>
             <input type="text" value={newText} required onChange={editNweet} />
