@@ -31,7 +31,7 @@ const Auth = () => {
       } else {
         data = await signInWithEmailAndPassword(authService, email, password);
       }
-      console.log(data);
+      // console.log(data);
     } catch (e) {
       console.log(e);
       setError(e.message);
@@ -52,7 +52,7 @@ const Auth = () => {
     }
 
     const data = await signInWithPopup(authService, provider);
-    console.log(data);
+    // console.log(data);
   };
 
   return (

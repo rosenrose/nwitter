@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { dbService, collection, addDoc, getDocs } from "fbase";
-import { doc } from "firebase/firestore";
+import { dbService, collection, addDoc, getDocs, onSnapshot } from "fbase";
+import Nweet from "components/Nweet";
 
-const Home = () => {
+const Home = ({ userObj }) => {
+  // console.log(userObj);
   const [nweet, setNweet] = useState("");
   const [nweetList, setNweetList] = useState([]);
 
@@ -12,6 +13,7 @@ const Home = () => {
     await addDoc(collection(dbService, "nweets"), {
       text: nweet,
       createdAt: Date.now(),
+      creatorId: userObj.uid,
     });
     setNweet("");
   };
@@ -20,16 +22,16 @@ const Home = () => {
   };
 
   useEffect(() => {
-    (async () => {
-      const nweets = await getDocs(collection(dbService, "nweets"));
-      setNweetList(
-        [...nweets.docs].map((doc) => {
-          return { ...doc.data(), id: doc.id };
-        })
-      );
-    })();
+    onSnapshot(collection(dbService, "nweets"), async (snapshot) => {
+      // console.log(snapshot);
+      setNweetList(snapshot.docs.map((doc) => ({ ...doc.data(), docId: doc.id })));
+      // console.log(nweetList);
+    });
   }, []);
-  console.log(nweetList);
+  // const nweets = await getDocs(collection(dbService, "nweets"));
+  // setNweetList(
+  //   nweets.docs.map((doc) => ({ ...doc.data(), docId: doc.id }))
+  // );
 
   return (
     <div>
@@ -45,9 +47,7 @@ const Home = () => {
       </form>
       <ul>
         {nweetList.map((nweet) => (
-          <li key={nweet.id}>
-            <h4>{nweet.text}</h4>
-          </li>
+          <Nweet key={nweet.docId} nweet={nweet} isOwner={userObj.uid === nweet.creatorId} />
         ))}
       </ul>
     </div>

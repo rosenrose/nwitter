@@ -14,7 +14,6 @@ initializeApp(firebaseConfig);
 
 export const authService = getAuth();
 export const dbService = getFirestore();
-
 export {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -22,4 +21,12 @@ export {
   GoogleAuthProvider,
   GithubAuthProvider,
 } from "firebase/auth";
-export { collection, addDoc, getDocs } from "firebase/firestore";
+export {
+  collection,
+  addDoc,
+  getDocs,
+  onSnapshot,
+  doc,
+  deleteDoc,
+  updateDoc,
+} from "firebase/firestore";
