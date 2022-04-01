@@ -9,11 +9,15 @@ function App() {
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
       // console.log(user);
-      setUser({
-        displayName: user.displayName,
-        photoURL: user.photoURL,
-        uid: user.uid,
-      });
+      if (user) {
+        setUser({
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+          uid: user.uid,
+        });
+      } else {
+        setUser(null);
+      }
       setIsInit(true);
     });
   }, []);
