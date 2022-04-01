@@ -1,0 +1,21 @@
+.navUl {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.homeLink {
+  margin-right: 1rem;
+}
+
+.profileLink {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.displayName {
+  margin-top: 1rem;
+}

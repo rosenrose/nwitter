@@ -11,6 +11,8 @@ import {
   orderBy,
 } from "fbase";
 import Nweet from "components/Nweet";
+import "css/Profile.css";
+import "css/Home.css";
 
 const Profile = ({ user, refreshUser }) => {
   // console.log(user);
@@ -54,18 +56,27 @@ const Profile = ({ user, refreshUser }) => {
   }, []);
 
   return (
-    <>
-      <form onSubmit={onSubmit}>
-        <input type="text" placeholder="Display name" value={newDisplayName} onChange={onChange} />
-        <input type="submit" value="Update Profile" />
+    <div className="container">
+      <form onSubmit={onSubmit} className="profileForm">
+        <input
+          type="text"
+          placeholder="Display name"
+          value={newDisplayName}
+          onChange={onChange}
+          autoFocus
+          className="formInput"
+        />
+        <input type="submit" value="Update Profile" className="formBtn displayNameSubmit" />
       </form>
-      <button onClick={onLogOutClick}>Log Out</button>
-      <ul>
+      <span onClick={onLogOutClick} className="formBtn cancelBtn logOut">
+        Log Out
+      </span>
+      <ul className="nweetUl">
         {myNweets.map((nweet) => (
           <Nweet key={nweet.docId} nweet={nweet} isOwner={true} />
         ))}
       </ul>
-    </>
+    </div>
   );
 };
 export default Profile;

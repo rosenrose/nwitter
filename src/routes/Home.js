@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { dbService, collection, onSnapshot } from "fbase";
 import Nweet from "components/Nweet";
 import NweetFactory from "components/NweetFactory";
+import "css/Home.css";
 
 const Home = ({ user }) => {
   // console.log(user);
@@ -20,9 +21,9 @@ const Home = ({ user }) => {
   // );
 
   return (
-    <div>
+    <div className="container">
       <NweetFactory user={user} />
-      <ul>
+      <ul className="nweetUl">
         {nweetList.map((nweet) => (
           <Nweet key={nweet.docId} nweet={nweet} isOwner={user.uid === nweet.creatorId} />
         ))}

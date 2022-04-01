@@ -1,0 +1,35 @@
+.authInput {
+  max-width: 20rem;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 2rem;
+  background-color: rgba(255, 255, 255, 1);
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  color: black;
+}
+
+.authSubmit {
+  text-align: center;
+  background: #04aaff;
+  color: white;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.authError {
+  color: tomato;
+  text-align: center;
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+.authSwitch {
+  color: #04aaff;
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  display: block;
+  font-size: 0.8rem;
+  text-decoration: underline;
+}

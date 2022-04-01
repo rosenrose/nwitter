@@ -32,22 +32,10 @@ function App() {
   };
 
   return (
-    <>
+    <main>
       {isInit ? <AppRouter user={user} refreshUser={refreshUser} /> : "Initializing..."}
       <footer>&copy; Nwitter {new Date().getFullYear()}</footer>
-      <style jsx="true">
-        {`
-          img#preview {
-            width: 3rem;
-            height: 3rem;
-          }
-          img.attachment {
-            width: 4rem;
-            height: 4rem;
-          }
-        `}
-      </style>
-    </>
+    </main>
   );
 }
 

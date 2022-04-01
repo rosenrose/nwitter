@@ -10,6 +10,9 @@ import {
   getDownloadURL,
 } from "fbase";
 import { v4 as uuid } from "uuid";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faTimes } from "@fortawesome/free-solid-svg-icons";
+import "css/NweetFactory.css";
 
 const NweetFactory = ({ user }) => {
   const [nweetText, setNweetText] = useState("");
@@ -64,22 +67,38 @@ const NweetFactory = ({ user }) => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className="factoryForm">
+      <div className="factoryInput__container">
+        <input
+          type="text"
+          value={nweetText}
+          placeholder="What's on your mind?"
+          maxLength={140}
+          onChange={onNweetChange}
+          className="factoryInput__input"
+        />
+        <input type="submit" value="&rarr;" className="factoryInput__arrow" />
+      </div>
+      <label htmlFor="attach-file" className="factoryInput__label">
+        <span>Add photos</span>
+        <FontAwesomeIcon icon={faPlus} />
+      </label>
       <input
-        type="text"
-        value={nweetText}
-        placeholder="What's on your mind?"
-        maxLength={140}
-        onChange={onNweetChange}
+        id="attach-file"
+        type="file"
+        accept=".jpg,.jpeg,.png,.webp,.avif"
+        onChange={onFileChange}
+        hidden={true}
       />
-      <input type="file" accept=".jpg,.jpeg,.png,.webp,.avif" onChange={onFileChange} />
       {attachment && (
-        <div>
-          <img src={attachment} alt="" id="preview" />
-          <button onClick={clearImage}>Clear</button>
+        <div className="factoryForm__attachment">
+          <img src={attachment} alt="" className="preview" />
+          <div onClick={clearImage} className="factoryForm__clear">
+            <span>Remove</span>
+            <FontAwesomeIcon icon={faTimes} />
+          </div>
         </div>
       )}
-      <input type="submit" value="Nweet" />
     </form>
   );
 };
