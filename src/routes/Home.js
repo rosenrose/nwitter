@@ -104,18 +104,6 @@ const Home = ({ user }) => {
           <Nweet key={nweet.docId} nweet={nweet} isOwner={user.uid === nweet.creatorId} />
         ))}
       </ul>
-      <style jsx="true">
-        {`
-          img#preview {
-            width: 3rem;
-            height: 3rem;
-          }
-          img.attachment {
-            width: 4rem;
-            height: 4rem;
-          }
-        `}
-      </style>
     </div>
   );
 };

@@ -4,14 +4,18 @@ import Home from "routes/Home";
 import Profile from "routes/Profile";
 import Navigation from "components/Navigation";
 
-const AppRouter = ({ user }) => (
+const AppRouter = ({ user, refreshUser }) => (
   <Router>
-    {user && <Navigation />}
+    {user && <Navigation user={user} />}
     <Routes>
       {user ? (
         <>
           <Route exact path="/" element={<Home user={user} />} />
-          <Route exact path="/profile" element={<Profile user={user} />} />
+          <Route
+            exact
+            path="/profile"
+            element={<Profile user={user} refreshUser={refreshUser} />}
+          />
         </>
       ) : (
         <Route exact path="/" element={<Auth />} />

@@ -22,6 +22,7 @@ export {
   signInWithPopup,
   GoogleAuthProvider,
   GithubAuthProvider,
+  updateProfile,
 } from "firebase/auth";
 export {
   collection,
@@ -31,5 +32,8 @@ export {
   doc,
   deleteDoc,
   updateDoc,
+  query,
+  where,
+  orderBy,
 } from "firebase/firestore";
 export { ref, uploadString, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage";
