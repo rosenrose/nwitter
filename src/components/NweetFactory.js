@@ -73,6 +73,7 @@ const NweetFactory = ({ user }) => {
           type="text"
           value={nweetText}
           placeholder="What's on your mind?"
+          required
           maxLength={140}
           onChange={onNweetChange}
           className="factoryInput__input"
