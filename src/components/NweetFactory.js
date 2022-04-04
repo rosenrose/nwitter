@@ -23,7 +23,7 @@ const NweetFactory = ({ user }) => {
 
     let attachmentUrl = "";
     if (attachment) {
-      const attachmentRef = ref(storageService, `${user.uid}/${uuid()}`);
+      const attachmentRef = ref(storageService, `${user.uid}/attachments/${uuid()}`);
       // console.log(attachmentRef);
 
       // const response = await uploadString(attachmentRef, attachment, "data_url");

@@ -9,9 +9,12 @@ const Home = ({ user }) => {
   const [nweetList, setNweetList] = useState([]);
 
   useEffect(() => {
-    onSnapshot(collection(dbService, "nweets"), async (snapshot) => {
-      // console.log(snapshot);
-      setNweetList(snapshot.docs.map((doc) => ({ ...doc.data(), docId: doc.id })));
+    onSnapshot(collection(dbService, "nweets"), (snapshot) => {
+      setNweetList(
+        snapshot.docs
+          .map((doc) => ({ ...doc.data(), docId: doc.id }))
+          .sort((a, b) => b.createdAt - a.createdAt)
+      );
       // console.log(nweetList);
     });
   }, []);

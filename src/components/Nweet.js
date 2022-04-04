@@ -54,7 +54,7 @@ const Nweet = ({ nweet, isOwner }) => {
       ) : (
         <>
           <h4>{nweet.text}</h4>
-          {nweet.attachmentUrl && <img src={nweet.attachmentUrl} alt="" className="attachment" />}
+          {nweet.attachmentUrl && <img src={nweet.attachmentUrl} alt="" className="nweet__image" />}
           {isOwner && (
             <div className="nweet__actions">
               <span onClick={deleteNweet}>

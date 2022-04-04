@@ -14,7 +14,11 @@ const Navigation = ({ user }) => (
       </li>
       <li>
         <Link to="/profile" className="profileLink">
-          <FontAwesomeIcon icon={faUser} color={"#04AAFF"} size="2x" />
+          {user.photoURL ? (
+            <img src={user.photoURL} alt="profilphoto" className="profilePhoto" />
+          ) : (
+            <FontAwesomeIcon icon={faUser} color={"#04AAFF"} size="2x" />
+          )}
           <span className="displayName">{user.displayName || user.email}'s Profile</span>
         </Link>
       </li>

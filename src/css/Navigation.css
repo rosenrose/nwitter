@@ -16,6 +16,10 @@
   font-size: 0.8rem;
 }
 
+.profilePhoto {
+  width: 2rem;
+}
+
 .displayName {
   margin-top: 1rem;
 }
