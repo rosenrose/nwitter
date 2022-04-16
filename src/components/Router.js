@@ -5,7 +5,7 @@ import Profile from "routes/Profile";
 import Navigation from "components/Navigation";
 
 const AppRouter = ({ user, refreshUser }) => (
-  <Router>
+  <Router basename={process.env.PUBLIC_URL}>
     {user && <Navigation user={user} />}
     <Routes>
       {user ? (
