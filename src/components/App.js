@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import AppRouter from "components/Router";
+import Router from "components/Router";
 import { authService } from "fbase";
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
 
   return (
     <main>
-      {isInit ? <AppRouter user={user} refreshUser={refreshUser} /> : "Initializing..."}
+      {isInit ? <Router user={user} refreshUser={refreshUser} /> : "Initializing..."}
       <footer>&copy; Nwitter {new Date().getFullYear()}</footer>
     </main>
   );

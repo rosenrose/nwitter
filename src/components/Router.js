@@ -1,11 +1,11 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Auth from "routes/Auth";
 import Home from "routes/Home";
 import Profile from "routes/Profile";
 import Navigation from "components/Navigation";
 
-const AppRouter = ({ user, refreshUser }) => (
-  <Router basename={process.env.PUBLIC_URL}>
+const Router = ({ user, refreshUser }) => (
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
     {user && <Navigation user={user} />}
     <Routes>
       {user ? (
@@ -22,6 +22,6 @@ const AppRouter = ({ user, refreshUser }) => (
       )}
       <Route path="/*" element={<Navigate to="/" replace={true} />} />
     </Routes>
-  </Router>
+  </BrowserRouter>
 );
-export default AppRouter;
+export default Router;
